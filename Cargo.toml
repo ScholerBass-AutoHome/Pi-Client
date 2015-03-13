@@ -1,0 +1,14 @@
+[package]
+
+name = "iron-home"
+version = "0.0.1"
+authors = ["Andrew Bass <andybass009@gmail.com>"]
+
+[dependencies]
+router = "*"
+
+[dependencies.iron]
+version = "*"
+
+[dependencies.bodyparser]
+git = "https://github.com/iron/body-parser.git"
