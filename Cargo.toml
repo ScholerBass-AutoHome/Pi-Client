@@ -6,6 +6,7 @@ authors = ["Andrew Bass <andybass009@gmail.com>"]
 
 [dependencies]
 router = "*"
+rustc-serialize = "*"
 
 [dependencies.iron]
 version = "*"
