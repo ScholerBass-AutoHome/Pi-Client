@@ -11,7 +11,7 @@ use iron::modifiers::Redirect;
 use iron::Url;
 use router::Router;
 
-use handlers::Toggler;
+use handlers::{Toggler, Deleter};
 use apps::Appliance;
 
 mod apps;
@@ -45,7 +45,9 @@ fn main() {
     router.post("/toggle-apps", Toggler {
         table: rc_table.clone()
     });
-    router.post("/delete-apps", handler);
+    router.post("/delete-apps", Deleter {
+        table: rc_table.clone()    
+    });
     router.post("/create-apps", handler);
 
     Iron::new(router).http("localhost:3000").unwrap();
