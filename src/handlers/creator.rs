@@ -9,13 +9,19 @@ use iron::{Handler};
 
 use apps::*;
 
-pub struct Deleter {
+#[derive(Debug, Clone, RustcDecodable)]
+pub struct JsonAppliance {
+    name: String,
+    pin: i32,
+}
+
+pub struct Creator {
     pub table: Arc<RwLock<AppTable>>,
 }
 
-impl Handler for Deleter {
+impl Handler for Creator {
     fn handle(&self, req: &mut Request) -> IronResult<Response> {
-        let names = match req.get::<bp::Struct<Vec<String>>>() {
+        let app_requests = match req.get::<bp::Struct<Vec<JsonAppliance>>>() {
             Ok(Some(body)) => body,
             _ => {
                 return Ok(Response::with(status::BadRequest));
@@ -24,16 +30,16 @@ impl Handler for Deleter {
 
         let mut table = self.table.write().unwrap();
         let mut result = String::new();
-        
-        for name in names.iter() {
-            match table.remove(name) {
-                Some(app) => {
-                    result.push_str(&format!("{}: {:?}\n", name, app)[..]);
-                },
-                None => {
-                    return Ok(Response::with(status::BadRequest));
-                }
-            }
+
+        for app_req in app_requests {
+            let appliance = Appliance {
+                pin: app_req.pin ,
+                on: false,
+            };
+
+            result.push_str(&format!("{}: {:?}\n", app_req.name, appliance));
+
+            table.insert(app_req.name, appliance); 
         }
         
         Ok(Response::with((status::Ok, &result[..])))

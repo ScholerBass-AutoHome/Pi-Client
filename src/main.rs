@@ -11,7 +11,7 @@ use iron::modifiers::Redirect;
 use iron::Url;
 use router::Router;
 
-use handlers::{Toggler, Deleter};
+use handlers::{Toggler, Creator, Deleter};
 use apps::Appliance;
 
 mod apps;
@@ -48,7 +48,9 @@ fn main() {
     router.post("/delete-apps", Deleter {
         table: rc_table.clone()    
     });
-    router.post("/create-apps", handler);
+    router.post("/create-apps", Creator {
+        table: rc_table.clone() 
+    });
 
     Iron::new(router).http("localhost:3000").unwrap();
     println!("Server is live");
