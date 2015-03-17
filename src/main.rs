@@ -17,17 +17,6 @@ use apps::Appliance;
 mod apps;
 mod handlers;
 
-fn handler(req: &mut Request) -> IronResult<Response> {
-    println!("Request received:");
-
-    let json = req.get::<bp::Json>();
-    
-    println!("{:?}", json);
-    let query = req.extensions.find::<Router>().unwrap();
-
-    Ok(Response::with(status::Ok))
-}
-
 fn main() {
     let mut table = apps::AppTable::new();
 
