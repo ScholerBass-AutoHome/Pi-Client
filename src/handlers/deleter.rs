@@ -15,12 +15,7 @@ pub struct Deleter {
 
 impl Handler for Deleter {
     fn handle(&self, req: &mut Request) -> IronResult<Response> {
-        let names = match req.get::<bp::Struct<Vec<String>>>() {
-            Ok(Some(body)) => body,
-            _ => {
-                return Ok(Response::with(status::BadRequest));
-            }
-        };
+        let names = json_body!(req, Vec<String>);
 
         let mut table = self.table.write().unwrap();
         let mut result = String::new();

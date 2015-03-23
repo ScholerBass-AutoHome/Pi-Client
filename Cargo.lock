@@ -1,22 +1,23 @@
 [root]
 name = "iron-home"
-version = "0.0.1"
+version = "0.0.2"
 dependencies = [
  "bodyparser 0.0.4 (git+https://github.com/iron/body-parser.git)",
- "iron 0.1.11 (registry+https://github.com/rust-lang/crates.io-index)",
+ "iron 0.1.13 (registry+https://github.com/rust-lang/crates.io-index)",
  "router 0.0.9 (registry+https://github.com/rust-lang/crates.io-index)",
- "rustc-serialize 0.3.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
+ "wiringpi 0.0.0 (git+https://github.com/Ogeon/rust-wiringpi.git)",
 ]
 
 [[package]]
 name = "bodyparser"
 version = "0.0.4"
-source = "git+https://github.com/iron/body-parser.git#e72348418f4db68ba0459043f4a4c9818bc2d250"
+source = "git+https://github.com/iron/body-parser.git#d2f8dc1ea6d4357766b8f693088590a0801f83eb"
 dependencies = [
- "iron 0.1.11 (registry+https://github.com/rust-lang/crates.io-index)",
- "persistent 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "iron 0.1.13 (registry+https://github.com/rust-lang/crates.io-index)",
+ "persistent 0.0.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "plugin 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "rustc-serialize 0.3.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -24,17 +25,17 @@ name = "conduit-mime-types"
 version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "rustc-serialize 0.3.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "cookie"
-version = "0.1.14"
+version = "0.1.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "openssl 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "rustc-serialize 0.3.5 (registry+https://github.com/rust-lang/crates.io-index)",
- "time 0.1.20 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
+ "time 0.1.21 (registry+https://github.com/rust-lang/crates.io-index)",
  "url 0.2.27 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -48,35 +49,43 @@ dependencies = [
 
 [[package]]
 name = "gcc"
-version = "0.3.1"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "httparse"
+version = "0.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "hyper"
-version = "0.3.0"
+version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "cookie 0.1.14 (registry+https://github.com/rust-lang/crates.io-index)",
- "log 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cookie 0.1.15 (registry+https://github.com/rust-lang/crates.io-index)",
+ "httparse 0.0.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "log 0.2.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "mime 0.0.10 (registry+https://github.com/rust-lang/crates.io-index)",
+ "num_cpus 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "openssl 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "rustc-serialize 0.3.5 (registry+https://github.com/rust-lang/crates.io-index)",
- "time 0.1.20 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
+ "time 0.1.21 (registry+https://github.com/rust-lang/crates.io-index)",
  "unicase 0.0.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "url 0.2.27 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "iron"
-version = "0.1.11"
+version = "0.1.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "conduit-mime-types 0.7.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "error 0.1.3 (registry+https://github.com/rust-lang/crates.io-index)",
- "hyper 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "hyper 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "lazy_static 0.1.8 (registry+https://github.com/rust-lang/crates.io-index)",
- "log 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "log 0.2.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "modifier 0.0.9 (registry+https://github.com/rust-lang/crates.io-index)",
+ "num_cpus 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "plugin 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "typemap 0.0.10 (registry+https://github.com/rust-lang/crates.io-index)",
  "url 0.2.27 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -102,8 +111,11 @@ dependencies = [
 
 [[package]]
 name = "log"
-version = "0.2.5"
+version = "0.2.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "libc 0.1.3 (registry+https://github.com/rust-lang/crates.io-index)",
+]
 
 [[package]]
 name = "matches"
@@ -115,13 +127,22 @@ name = "mime"
 version = "0.0.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "log 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "log 0.2.6 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "modifier"
 version = "0.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "num_cpus"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "gcc 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libc 0.1.3 (registry+https://github.com/rust-lang/crates.io-index)",
+]
 
 [[package]]
 name = "openssl"
@@ -137,7 +158,7 @@ name = "openssl-sys"
 version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "gcc 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "gcc 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "libc 0.1.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "libressl-pnacl-sys 2.1.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "pkg-config 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -145,10 +166,10 @@ dependencies = [
 
 [[package]]
 name = "persistent"
-version = "0.0.3"
+version = "0.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "iron 0.1.11 (registry+https://github.com/rust-lang/crates.io-index)",
+ "iron 0.1.13 (registry+https://github.com/rust-lang/crates.io-index)",
  "plugin 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -180,21 +201,21 @@ name = "router"
 version = "0.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "iron 0.1.11 (registry+https://github.com/rust-lang/crates.io-index)",
+ "iron 0.1.13 (registry+https://github.com/rust-lang/crates.io-index)",
  "route-recognizer 0.1.9 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "rustc-serialize"
-version = "0.3.5"
+version = "0.3.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "time"
-version = "0.1.20"
+version = "0.1.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "gcc 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "gcc 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "libc 0.1.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -227,6 +248,11 @@ version = "0.2.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "matches 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "rustc-serialize 0.3.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
+
+[[package]]
+name = "wiringpi"
+version = "0.0.0"
+source = "git+https://github.com/Ogeon/rust-wiringpi.git#fe39a05f15f026f9f18618e79338813f84c4a26b"
 

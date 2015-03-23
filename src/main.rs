@@ -1,3 +1,4 @@
+
 extern crate iron;
 extern crate router;
 extern crate "bodyparser" as bp;
@@ -14,6 +15,14 @@ use router::Router;
 use handlers::{Toggler, Creator, Deleter};
 use apps::Appliance;
 
+#[macro_export]
+macro_rules! json_body {
+    ($req:ident, $t:ty) => (match $req.get::<bp::Struct<$t>>() {
+        Ok(Some(body)) => body,
+        _ => return Ok(Response::with(status::BadRequest)),
+    })
+}
+
 mod apps;
 mod handlers;
 
@@ -24,7 +33,7 @@ fn main() {
         "lamp".to_string(),
         Appliance {
            on: false,
-           pin: 0
+           pin: 0,
         }
     );
 
@@ -32,7 +41,7 @@ fn main() {
     let mut router = Router::new();
 
     router.post("/toggle-apps", Toggler {
-        table: rc_table.clone()
+        table: rc_table.clone(),
     });
     router.post("/delete-apps", Deleter {
         table: rc_table.clone()    
@@ -41,6 +50,7 @@ fn main() {
         table: rc_table.clone() 
     });
 
-    Iron::new(router).http("localhost:3000").unwrap();
-    println!("Server is live");
+    Iron::new(router).http("autohome.local:3000").map(|_| {
+        println!("Server is live");
+    });
 }
